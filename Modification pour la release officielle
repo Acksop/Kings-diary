@@ -1,0 +1,54 @@
+cf http://tiplanet.org/forum/viewtopic.php?f=42&t=13914&p=185817#p185817
+
+
+[quote]Pour pouvoir faire une release officielle, j'ai besoin d'aide sur l'interface utilisateur, en particulier:
+* la possibilité de sélectionner plusieurs variables à la fois avant envoi à l'émulateur;
+* faire en sorte que F10 déclenche le même dialog permettant de browser le système de fichiers de l'ordinateur que celui qui est sur la page HTML;
+* une interface plus utilisable pour la réception des variables (là, il faut cliquer sur deux boutons, puis un lien qui apparaît grâce au deuxième bouton...);
+* à plus long terme, l'interface utilisateur pour dirlist, qui prendrait en entrée un tableau d'objets, et permettrait de cocher une seule variable (au tout début; plus tard, il faudrait gérer les réceptions multiples dans le backend) à recevoir silencieusement;
+* skins grande taille et keymaps pour 89, V200, 89T;
+* une plus jolie image pour le skin 89.[/quote]
+
+ <<< J'avais pas vu ... ( apa mis mes lunettes de taupe !)
+A l'époque de ma terminale je révais de pouvoir créer un jeux en assembleur, quelques-jeux basiques
+ du type de Solarstriker ( GB ) ou Revenge of the Gator ( GB )... mais ce n'étais pas possible à ce moment là
+car je ne savait ni d'Eve ni d'Adam que la compilation nécessitait un autre langage...
+
+
+
+Je n'ai malheureusement pas d'assez bonnes connaissances en C/C++ ( OpenGL ) afin de pouvoir utiliser ce type de LLVM 
+( dont je ne connaissait pas l'acronyme... )
+
+...
+
+ je vais tenter de prendre sur moi ( j'ai de nombreux projets en cours ) et avancer sur ces modifications nécessaire pour la release officielle même si je sens que je vais galérer sur le dirlist
+Merci en tout cas, l'émulation emscripten - TI-68k me donne envie !
+
+...
+
+[color=#400000]j'ai tout de même continuer depuis le message sur le forum sur mon fork d'instancier une façon élémentaire d'écrire au clavier automatiquement sur l'émulateur afin de lancer le jeu automatiquement après un chargement de l'ensemble des fichiers nécessaires ( je bloque a ce moment sur une erreur qui me renvoi dans le core js de l'émulateur [ que j'ai déja modifié au passage... mais c'est superficiel ] )...[/color]
+
+----------------------------------------------------------------------------------------------------------
+
+pfuuuu ... presque 8 mois ... dont près de 6 d'abandon faute de temps ...
+
+[quote="Lionel Debroux"]Même si ce n'est pas encore directement utilisable, l'arrivée annoncée de WebAssembly renforce l'idée selon laquelle il faudrait utiliser du C/C++ pour le coeur de l'émulateur, et produire du WebAssembly.
+[/quote]
+ >> je ne sais pas vraiment quoi penser de tout cela C/C++/Java n'ont pas été les langages que j'ai pratiqué et surtout celui sur lequel je me suis spécialisé ces dernières années... WebAssembly ne m'est pas une chose familière, si j'ai la possibilité de poursuivre une formation prochaine, il y a des chances que ce soit dans l'un des deux languages :) je serait alors au top pour réellement continuer vers la release officielle se trouvant quelques posts plus haut ( ainsi que dans un fichier texte dans mon dossier de travail  !)
+
+[quote="Acksop"]j'ai tout de même continuer depuis le message sur le forum sur mon fork d'instancier une façon élémentaire d'écrire au clavier automatiquement sur l'émulateur afin de lancer le jeu automatiquement après un chargement de l'ensemble des fichiers nécessaires[/quote]
+
+>>> après m'y être replonger cette soirée ( un peu étendue ), j'ai finalement mis les main dans le camboui du core JS de l'émulateur afin de pouvoir charger de multiples fichiers en autoload à base d'un Objet Xhr manipulant un Objet Reader chargeant une fonction-maison ajoutée directement dans le core JS de l'émulateur ( je mettrait tout dans un prochain post ; le temps pour moi de rassembler les pièces du puzzle que j'avais barbotté il y a 8 mois ) ...
+
+Le jumellage fonctionne script-JS/core-FileAutoLoad fonctionne en chargeant une liste de fichier .89*, autant dire que j'en suis enfin venu a bout à cette heure !
+
+
+
+[quote="Lionel Debroux"]Le remote control à base de caractères est censé être déjà implémenté dans le code de link ?[/quote]
+>>>> effectivement : L'écriture au clavier se fait tout aussi naturellement, le code de link le permettait avec la fonction emu.setKey(%,%), mais avant d'en arriver là je suis passé par un paquet de non-sens-ECMAScriptiens !
+
+Voila!
+sinon concernant la release officielle:
+* je n'ai pas d'exemple concret pour la sélection et la réception de plusieurs variables avant l'envoi à l'émulateur .. je ne peut pas faire grand chose sans.
+* un exemple-type pour le dirlist me manque aussi... avant de m'en apercevoir, j'avais instancier quelques recherches autour d'un accès JAVA ( par une applet ) et avais même intégré le bouton dans le formulaire de la page HTML ....
+* sinon concernant la taille des skins, le besoin n'y était pas pour moi a ce moment là, mais ce soir j'ai remarqué que la taille de l'écran (var screen ) et au maximum de 320*200... c'est déjà pas si mal, mais je pense que je peut avoir besoin d'un écran d'une taille 50% plus grande que celle la, donc j'y jetterais un coup d'oeil plus tôt que je ne le pense !

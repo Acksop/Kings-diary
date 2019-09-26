@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Average milliseconds for the last 1000 frames is 2.495</title>
+</head>
+<body onload="javascript:emu.initemu()">
+<h3>Javascript TI-89 / TI-92+ / TI-V200 / TI-89T emulator (beta version 12) by Patrick Davidson &amp; Lionel Debroux</h3>
+<div id="calccontainer" style="position:relative">
+<canvas height="100" width="160" id="screen" style="position:relative;top:36px;left:29px;z-index:1">This emulator requires a browser with canvas support and Javascript enabled.</canvas>
+<!--<script pagespeed_no_defer="">//<![CDATA[
+(function(){var g=this,h=function(b,d){var a=b.split("."),c=g;a[0]in c||!c.execScript||c.execScript("var "+a[0]);for(var e;a.length&&(e=a.shift());)a.length||void 0===d?c[e]?c=c[e]:c=c[e]={}:c[e]=d};var l=function(b){var d=b.length;if(0<d){for(var a=Array(d),c=0;c<d;c++)a[c]=b[c];return a}return[]};var m=function(b){var d=window;if(d.addEventListener)d.addEventListener("load",b,!1);else if(d.attachEvent)d.attachEvent("onload",b);else{var a=d.onload;d.onload=function(){b.call(this);a&&a.call(this)}}};var n,p=function(b,d,a,c,e){this.f=b;this.h=d;this.i=a;this.c=e;this.e={height:window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight,width:window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth};this.g=c;this.b={};this.a=[];this.d={}},q=function(b,d){var a,c,e=d.getAttribute("pagespeed_url_hash");if(a=e&&!(e in b.d))if(0>=d.offsetWidth&&0>=d.offsetHeight)a=!1;else{c=d.getBoundingClientRect();var f=document.body;a=c.top+("pageYOffset"in window?window.pageYOffset:(document.documentElement||f.parentNode||f).scrollTop);c=c.left+("pageXOffset"in window?window.pageXOffset:(document.documentElement||f.parentNode||f).scrollLeft);f=a.toString()+","+c;b.b.hasOwnProperty(f)?a=!1:(b.b[f]=!0,a=a<=b.e.height&&c<=b.e.width)}a&&(b.a.push(e),b.d[e]=!0)};p.prototype.checkImageForCriticality=function(b){b.getBoundingClientRect&&q(this,b)};h("pagespeed.CriticalImages.checkImageForCriticality",function(b){n.checkImageForCriticality(b)});h("pagespeed.CriticalImages.checkCriticalImages",function(){r(n)});var r=function(b){b.b={};for(var d=["IMG","INPUT"],a=[],c=0;c<d.length;++c)a=a.concat(l(document.getElementsByTagName(d[c])));if(0!=a.length&&a[0].getBoundingClientRect){for(c=0;d=a[c];++c)q(b,d);a="oh="+b.i;b.c&&(a+="&n="+b.c);if(d=0!=b.a.length)for(a+="&ci="+encodeURIComponent(b.a[0]),c=1;c<b.a.length;++c){var e=","+encodeURIComponent(b.a[c]);131072>=a.length+e.length&&(a+=e)}b.g&&(e="&rd="+encodeURIComponent(JSON.stringify(s())),131072>=a.length+e.length&&(a+=e),d=!0);t=a;if(d){c=b.f;b=b.h;var f;if(window.XMLHttpRequest)f=new XMLHttpRequest;else if(window.ActiveXObject)try{f=new ActiveXObject("Msxml2.XMLHTTP")}catch(k){try{f=new ActiveXObject("Microsoft.XMLHTTP")}catch(u){}}f&&(f.open("POST",c+(-1==c.indexOf("?")?"?":"&")+"url="+encodeURIComponent(b)),f.setRequestHeader("Content-Type","application/x-www-form-urlencoded"),f.send(a))}}},s=function(){var b={},d=document.getElementsByTagName("IMG");if(0==d.length)return{};var a=d[0];if(!("naturalWidth"in a&&"naturalHeight"in a))return{};for(var c=0;a=d[c];++c){var e=a.getAttribute("pagespeed_url_hash");e&&(!(e in b)&&0<a.width&&0<a.height&&0<a.naturalWidth&&0<a.naturalHeight||e in b&&a.width>=b[e].k&&a.height>=b[e].j)&&(b[e]={rw:a.width,rh:a.height,ow:a.naturalWidth,oh:a.naturalHeight})}return b},t="";h("pagespeed.CriticalImages.getBeaconData",function(){return t});h("pagespeed.CriticalImages.Run",function(b,d,a,c,e,f){var k=new p(b,d,a,e,f);n=k;c&&m(function(){window.setTimeout(function(){r(k)},0)})});})();pagespeed.CriticalImages.Run('/mod_pagespeed_beacon','http://tiplanet.org/pad_ti68k_emu/','DxYpUXBcsV',true,false,'LXlSR7_S2Hs');
+//]]></script>-->
+
+<img style="position:absolute;top:0px;left:0px;z-index:0" usemap="#calcmap" src="TI68k-emulator-versionJS/ti89_skinmap.gif" id="calcimg"><map id="calcmap" name="calcmap"><area coords="23,151,51,161" shape="rect"><area coords="60,151,87,161" shape="rect"><area coords="94,151,122,161" shape="rect"><area coords="130,151,157,161" shape="rect"><area coords="166,151,194,161" shape="rect"><area coords="23,186,51,201" shape="rect"><area coords="60,186,87,201" shape="rect"><area coords="94,186,122,201" shape="rect"><area coords="132,181,143,181,149,187,149,208,143,215,132,215" shape="poly"><area coords="198,181,187,181,181,187,181,208,187,215,198,215" shape="poly"><area coords="148,171,148,182,154,188,176,188,182,182,182,171" shape="poly"><area coords="148,226,148,215,154,209,176,209,182,215,182,226" shape="poly"><area coords="23,211,51,226" shape="rect"><area coords="60,211,87,226" shape="rect"><area coords="94,211,122,226" shape="rect"><area coords="23,236,51,251" shape="rect"><area coords="60,236,87,251" shape="rect"><area coords="94,236,122,251" shape="rect"><area coords="130,236,157,251" shape="rect"><area coords="166,236,194,251" shape="rect"><area coords="23,262,51,277" shape="rect"><area coords="60,262,87,277" shape="rect"><area coords="94,262,122,277" shape="rect"><area coords="130,262,157,277" shape="rect"><area coords="166,262,194,277" shape="rect"><area coords="23,287,51,303" shape="rect"><area coords="60,287,87,303" shape="rect"><area coords="94,287,122,303" shape="rect"><area coords="130,287,157,303" shape="rect"><area coords="166,287,194,303" shape="rect"><area coords="23,314,51,328" shape="rect"><area coords="60,311,87,329" shape="rect"><area coords="94,311,122,329" shape="rect"><area coords="130,311,157,329" shape="rect"><area coords="166,314,194,328" shape="rect"><area coords="23,339,51,354" shape="rect"><area coords="60,337,87,355" shape="rect"><area coords="94,337,122,355" shape="rect"><area coords="130,337,157,355" shape="rect"><area coords="166,339,194,354" shape="rect"><area coords="23,364,51,379" shape="rect"><area coords="60,362,87,381" shape="rect"><area coords="94,362,122,381" shape="rect"><area coords="130,362,157,381" shape="rect"><area coords="166,364,194,379" shape="rect"><area coords="60,388,87,407" shape="rect"><area coords="94,388,122,407" shape="rect"><area coords="130,388,157,407" shape="rect"><area coords="166,390,194,410" shape="rect"><area coords="23,388,51,407" shape="rect"></map></div>
+<div id="textandbuttons" style="position:relative;top:310px">
+
+
+<form>
+<!--<p> <input onchange="javascript:consoleOutput();/*ui.loadrom()*/" id="romfile" type="file"> 
+
+Choose a ROM image (in TIB, ??U, or plain ROM format) to load the new 
+ROM and reset the calculator. Choose a file to upload a new variable to
+the calculator (you must be on the home screen to do this). Note that 
+while the pre-loaded programs are quite
+compatible with this emulator, compability with other programs is 
+limited in this version.</p>-->
+<br />
+<label for='romfile'>Charger un seul fichier</label>
+<input onchange="javascript:ui.loadrom();" id="romfile" type="file">
+<br />
+<label for='filesinput'>Charger de nombreux fichiers</label>
+<input type="file" id="filesinput" accessKey='F10' multiple />
+<!-- DEBUT -->
+<!-- Ajout de l'applet java permettant de lister les fichier d'un dossier -->
+<applet id="javaToJavascriptApplet" code="test.MyApplet.class" mayscript
+  width="0" height="0" codebase="bin/"> </applet>
+<!-- Ajout du bouton permettant d'appeler la fonction java -->
+<!-- exemple : https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog -->
+<dialog id="myDialogBox">
+  <form method="dialog">
+    <menu>
+      <button onclick="javascript:callJavaMethod();">Call a java applet method</button>
+      <button id="cancel" type="reset">Cancel</button>
+    </menu>
+  </form>
+</dialog>
+
+<button id="openMyDialogBox">open dialogBox</button>
+<!-- FIN -->
+<p>
+<input value="Pause emulator" id="pauseemulator" onclick="javascript:ui.pause_emulator()" type="button">
+<input value="Resume emulator" id="resumeemulator" style="display:none" onclick="javascript:ui.resume_emulator()" type="button"><br>
+<input value="Try to speed emulator up" id="speedup" onclick="javascript:emu.increase_emulator_speed()" type="button">
+<input value="Slow emulator down" id="slowdown" onclick="javascript:emu.decrease_emulator_speed()" type="button"><br>
+<input value="Reset calculator" id="reset_calculator" onclick="javascript:emu.initialize_calculator()" type="button"><br>
+<input value="PNG screenshot" id="pngbutton" onclick="javascript:ui.getPNG()" type="button">
+&nbsp;&nbsp;
+<input value="Close PNG screenshot" id="hidebutton" style="display:none" onclick="javascript:ui.pngButtons()" type="button">
+<img id="pngimage" >
+<!--<img id="pngimage" src="" pagespeed_url_hash="479750703" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">-->
+<br>
+<!-- http://stackoverflow.com/a/16213045  -->
+<input value="Start non-silent single file receive" id="receivensButton" onclick="javascript:link.recvfile_ns()" type="button">
+&nbsp;&nbsp;
+<input value="Make data created by recvfile() / recvfile_ns() available" id="downloadFileButton" onclick="javascript:link.getFileData()" type="button"></p></form><br>
+<a href="" id="downloadfile" style="display:none">Download data created by recvfile()</a>
+Skin type: <form>
+<input checked="checked" id="smallskin" name="skin_type" value="1" onclick="javascript:ui.setSkin(1)" type="radio">1:1&nbsp;&nbsp;
+<input id="largeskin" name="skin_type" value="2" onclick="javascript:ui.setSkin(2)" type="radio">2:1
+<input id="xlargeskin" name="skin_type" value="3" onclick="javascript:ui.setSkin(3)" type="radio">3:1
+<input id="xxlargeskin" name="skin_type" value="4" onclick="javascript:ui.setSkin(4)" type="radio">4:1
+</form>
+<p></p>
+<p>By default, the emulated calculator uses the open-source PedroM 
+instead of the official TI system software. The PedroM source along with
+ conversion scripts is available <a href="http://tiplanet.org/pad_ti68k_emu/">here</a>.
+In addition to clicking on the emulator itself, most keys are also 
+mapped to computer keyboards. Use the backslash (\) key to activate the 
+LOCK (hand) key on the emulated calculator, use backquote (`) for 2nd,
+use F10 for SHIFT,
+and use F9 for F1. Use the numeric keypad for the + - * / symbols but 
+the regular number keys to enter numbers. The - on the numeric keypad is
+ the plain - key; use the semicolon (;) key for the (-) key.
+All other keys either have the obvious mapping or not mapped to any 
+computer key. This emulator is pre-loaded with a few of my games.
+To run them just type a game name (monster, mercury, platinum, phoenix, 
+smiley) and press enter.</p>
+<p>If you encounter serious problems with this emulator, such as it 
+erases 100% of the data on your hard disk, please report to me by e-mail
+ to <a href="http://tiplanet.org/pad_ti68k_emu/eeulplek@hotmail.com">eeulplek@hotmail.com</a> / <a href="http://tiplanet.org/pad_ti68k_emu/lionel_debroux@yahoo.fr">lionel_debroux@yahoo.fr</a>,
+ on IRC (EFNet: #ti, #cemetech, #tcpa) or on message boards (Cemetech, 
+TI-Planet). However, please note that this is a beta version so minor 
+problems (such as erasing only 37% of your data) are to be expected and 
+thus are not worth reporting.</p>
+<p>Thanks to Patrick Pelissier for having written Pedrom -- this 
+emulator would never have been written without his open source ROM 
+available to include with it. Also thanks to Lionel Debroux for his many
+ suggestions to improve this emulator -- but note that I haven't made 
+use of all of them yet, so don't blame him if you find any bugs!</p>
+</div>
+<!--
+<script type="text/javascript">
+/* LES HACK de dialogBOx de 2009
+cf: http://forums.htmlhelp.com/index.php?showtopic=8577
+cf: http://www.codingforums.com/javascript-programming/48623-how-open-save-file-dialog-box-javascript.html
+
+/*TEST de HACVK from tiplanet.org */
+var progs = Array(1);
+progs[0]=new Uint8Array([42,42,84,73,56,57,42,42,1,0,109,97,114,105,111,0,0,0,83,105,110,103,108,101,32,102,105,108,101,32,114,101,99,101,105,118,101,100,32,98,
+121,32,84,105,76,80,0,0,0,0,0,0,0,0,0,0,0,0,1,0,82,0,0,0,99,111,109,109,111,110,0,0,28,0,0,0,106,7,0,0,165,90,0,0,0,0,7,16,0,1,0,0,1,184,
+2,28,2,80,2,164,11,171,4,241,5,45,5,148,25,50,10,15,7,255,2,250,30,7,255,7,10,37,7,255,7,10,6,134,5,252,4,139,1,255,7,2,66,4,255,4,58,106,
+0,208,2,31,30,3,62,22,6,62,51,8,0,15,0,10,0,48,0,48,0,48,0,112,0,0,0,16,0,0,0,240,0,0,0,7,0,0,0,0,87,87,87,87,87,87,87,87,87,87,87,87,87,
+87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,79,80,80,80,80,80,80,80,80,80,80,81,87,87,87,82,24,0,0,33,0,0,33,0,0,33,83,87,87,
+87,82,65,65,65,65,65,65,65,65,65,65,83,87,87,87,82,24,0,0,33,0,0,33,0,0,33,83,87,87,87,82,65,65,65,65,65,85,85,85,85,85,86,87,87,87,82,24,
+0,0,33,83,87,87,87,87,87,87,87,87,87,84,85,85,85,85,86,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,0,96,0,48,0,0,0,0,
+0,8,0,0,0,0,0,0,0,0,0,0,0,1,0,7,0,0,2,144,0,144,0,48,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,2,0,30,0,101,0,10,0,192,0,48,0,0,0,0,0,8,0,0,0,0,0,
+0,0,0,0,0,0,3,5,17,1,124,0,0,0,96,0,80,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,4,0,16,0,0,0,0,0,144,0,80,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,5,0,
+0,5,174,0,16,0,192,0,80,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,6,43,5,25,50,5,26,0,96,0,112,0,0,0,0,0,8,0,0,0,0,0,0,0,0,0,0,0,7,11,37,25,50,47,
+30,0,15,0,10,2,1,0,0,0,240,0,48,0,96,0,0,0,0,0,0,0,0,0,0,1,6,0,150,0,62,0,0,0,0,0,0,0,0,20,13,5,180,8,13,2,180,5,0,2,180,5,13,255,180,9,0,
+255,180,4,13,255,180,9,0,255,180,4,13,255,180,9,0,255,180,5,13,255,180,7,0,255,180,6,13,247,180,0,55,0,55,0,55,0,180,7,13,7,180,19,13,0,15,
+0,10,2,3,0,0,0,240,0,32,0,128,0,0,0,1,0,0,0,0,0,0,1,2,0,182,0,10,0,0,0,0,0,0,0,0,80,0,5,126,35,0,15,183,15,186,42,7,5,0,0,15,0,10,2,3,0,0,0,
+240,0,32,0,128,0,0,0,1,0,0,0,0,0,0,1,5,0,182,0,42,0,0,0,0,0,0,0,0,77,0,254,34,35,6,0,254,34,35,5,0,246,36,37,0,206,207,207,208,0,36,37,5,0,
+246,36,37,0,209,210,210,211,0,36,37,3,0,15,207,15,210,34,9,6,0,0,15,0,10,2,3,0,0,0,240,0,32,0,128,0,0,0,2,0,0,0,0,0,0,1,2,0,214,0,40,0,0,0,
+0,0,0,0,0,77,0,251,34,35,0,34,35,10,0,246,36,37,0,36,37,0,206,207,207,208,5,0,246,36,37,0,36,37,0,209,210,210,211,3,0,15,207,15,210,36,9,6,
+0,36,7,8,128,0,70,0,11,0,9,0,0,3,112,0,64,0,96,0,0,0,2,0,1,0,0,0,0,2,3,3,75,1,90,0,0,0,0,0,0,0,0,11,0,3,53,255,29,3,53,255,29,3,53,5,0,6,53,
+3,0,2,53,253,29,53,53,14,0,15,217,11,0,3,53,255,30,3,53,255,30,3,53,5,0,6,53,3,0,2,53,253,30,53,53,14,0,15,217,11,0,255,213,9,214,255,215,4,
+0,255,216,5,214,255,215,3,0,255,213,3,214,255,215,5,0,255,93,8,0,2,217,11,0,2,217,11,0,3,53,255,29,3,53,255,29,3,53,4,0,255,217,6,53,3,0,2,
+53,253,29,53,53,8,0,254,150,151,4,0,2,217,11,0,2,217,11,0,3,53,255,30,3,53,255,30,3,53,4,0,255,217,6,53,3,0,2,53,253,30,53,53,8,0,254,167,
+168,4,0,2,217,11,0,2,217,9,0,255,213,13,214,252,215,0,0,217,6,214,252,215,0,0,213,3,214,255,215,3,0,254,53,213,6,214,251,215,0,0,217,217,
+11,0,2,217,2,0,255,212,3,214,253,215,0,0,5,53,255,29,3,53,255,29,5,53,2,0,255,217,7,53,2,0,2,53,248,29,53,53,0,0,53,53,213,6,214,251,215,
+0,0,217,217,11,0,2,217,3,0,250,212,214,214,215,0,0,5,53,255,30,3,53,255,30,5,53,2,0,255,217,7,53,2,0,2,53,252,30,53,53,0,3,53,255,213,5,
+214,255,215,3,0,2,217,11,0,2,217,4,0,255,212,45,214,255,215,4,0,2,217,11,0,2,217,5,0,255,212,43,214,255,215,5,0,2,217,11,216,2,217,55,0,
+15,217,32,59,8,59,32,66,8,187,49,3,62,2,55,70,0,8,0,0,15,0,10,0,23,0,0,0,240,0,32,0,96,0,0,0,0,0,2,0,0,0,128,1,0,0,168,0,46,0,0,0,0,0,0,
+0,0,32,198,11,201,4,198,254,167,168,7,0,254,167,168,3,198,253,199,118,119,7,0,250,118,119,197,198,198,199,11,0,252,197,198,198,199,11,0,
+255,197,3,198,11,195,32,198,2,4,0,0,0,15,6,255,0,11,4,0,0,0,15,6,255,0,0,15,0,11,107,122,0,0,0,240,0,32,0,128,0,0,0,2,0,0,0,0,0,0,1,2,0,
+230,0,14,0,0,0,0,0,0,0,0,50,0,5,126,40,0,5,126,35,0,15,183,15,186,40,7,5,0,40,7,2,128,0,15,0,10,0,8,0,0,0,240,0,128,0,128,0,0,0,2,0,0,0,
+0,0,32,1,0,0,214,0,57,0,0,0,0,0,0,0,0,52,0,254,15,17,11,0,251,15,17,16,22,17,9,0,247,15,21,22,16,22,18,0,0,93,6,0,249,16,22,22,16,22,19,
+17,4,0,241,14,0,14,0,16,22,22,16,22,20,18,0,14,0,14,15,162,15,165,32,5,7,0,32,11,7,128,0,15,0,10,2,3,0,0,0,240,255,240,0,0,0,0,0,0,0,0,0,
+0,0,32,1,5,0,150,0,66,0,0,0,0,0,0,0,0,30,0,254,34,35,6,0,254,34,35,3,0,209,34,35,36,37,34,35,0,34,35,0,36,37,34,35,0,36,37,36,37,36,37,0,
+36,37,0,36,37,36,37,0,36,37,36,37,36,37,0,36,37,0,36,37,36,37,0,36,37,15,207,15,210,30,0,0,15,0,10,2,3,0,0,0,240,0,32,0,96,0,0,0,0,0,2,0,
+0,0,192,1,0,0,168,0,82,0,0,0,0,0,0,0,0,2,198,254,167,168,6,201,6,198,253,253,118,119,6,0,255,250,4,198,255,199,10,0,255,250,3,198,255,199,
+11,0,255,250,3,198,5,195,255,243,6,0,255,250,8,198,255,243,6,0,255,197,8,198,255,243,5,0,255,197,9,198,250,243,0,150,151,0,197,10,198,252,
+243,167,168,236,12,198,252,167,168,198,198,2,1,0,0,0,15,6,255,0,11,7,0,0,0,15,6,255,0,0,15,0,10,94,4,0,0,0,240,0,32,0,96,0,0,0,0,0,2,0,0,0,
+192,1,0,0,168,0,75,0,0,0,0,0,0,0,0,252,198,167,168,201,7,198,247,201,167,168,198,199,118,119,0,250,5,198,250,253,0,118,119,197,199,4,0,255,
+250,3,201,255,253,4,0,254,197,199,13,0,251,197,198,195,195,243,7,0,253,236,195,195,5,198,255,243,5,0,255,236,9,198,255,243,3,0,255,236,11,
+198,3,195,36,198,1,1,0,0,0,15,6,255,0,12,1,0,0,0,15,6,255,0,0,77,76,69,86,0,248,72,170]);
+</script>
+Injecting mario
+<script type="text/javascript">
+function checkemu(){return true;}
+</script>
+-->
+<script type="text/javascript" src="TI68k-emulator-versionJS/ti89rom.js"></script>
+<script type="text/javascript" src="TI68k-emulator-versionJS/v12_unreadable.acksop.js"></script>
+<!-- <script type="text/javascript" src="TI68k-emulator-versionJS/v12_readable.acksop.js"></script> -->
+<script type="text/javascript">var emu=TI68kEmulatorCoreModule(window);var ui=TI68kEmulatorUIModule(window);var link=TI68kEmulatorLinkModule(window);</script>
+<script type="text/javascript">//<![CDATA[
+function reset(){d0=0;d1=0;d2=0;d3=0;d4=0;d5=0;d6=0;d7=0;a0=0;a1=0;a2=0;a3=0;a4=0;a5=0;a6=0;a8=0x4C00;a7=0x4C00;ram=new Uint16Array(131072);};
+//]]></script>
+<script type="text/javascript">if(emu.apiversion()!=1){throw"API version has changed, the script may have to be updated";}
+if(typeof(rom)==="object"){emu.setRom(rom);}
+emu.setReset(reset);ui.setEmu(emu);ui.setLink(link);emu.setUI(ui);emu.setLink(link);link.setEmu(emu);link.setUI(ui);</script>
+<script type="text/javascript">
+  function readMultipleFiles(evt) {
+    //Retrieve all the files from the FileList object
+    var files = evt.target.files; 
+    		
+    if (files) {
+        for (var i=0, f; f=files[i]; i++) {
+	    var r = new FileReader();
+            r.onload = (function(f) {
+                return function(e) {
+                    var contents = e.target.result;
+                    console.log( "Got the file" 
+                          +"name: " + f.name + ""
+                          +"type: " + f.type + ""
+                          +"size: " + f.size + " bytes"
+                          + "starts with: " + contents.substr(64, f)
+                    ); 
+                };
+            })(f);
+
+            emu.loadrom(f);
+        }   
+    } else {
+	      alert("Failed to load files"); 
+    }
+  }
+  
+  function selectionnerElement(elem){
+	if ( document.getElementById && document.getElementById( elem ) ){
+		 Pdiv = document.getElementById( elem );
+	}
+	    // Pour les veilles versions
+	else if ( document.all && document.all[ elem ] ){
+		Pdiv = document.all[ elem ];
+	}
+	    // Pour les trés veilles versions
+	else if ( document.layers && document.layers[ elem ] ){
+		Pdiv = document.layers[ elem ];
+	}
+	else{
+		return false;
+	}
+	return Pdiv;
+  }
+  
+  FILES_input = selectionnerElement('filesinput');
+  
+  //alert(FILES_input.addEventListener);
+  
+  if(FILES_input.addEventListener){
+    FILES_input.addEventListener('change', readMultipleFiles, false);
+  }else if(FILES_input.attachEvent){
+    FILES_input.attachEvent('change', readMultipleFiles);
+  }else{
+    FILES_input.onchange = readMultipleFiles;
+  }
+  function f10_test(evt){
+  FILES_input = selectionnerElement('filesinput');
+  //alert('OK!');
+  	if(evt.keyCode == 121){
+  		//n'est pas permit pour les evenements de type file
+  		//FILES_input.click();
+  	}else{
+  		window.alert(evt.keyCode);
+  	}
+  }
+  
+  document.addEventListener('keydown', f10_test, false);
+  
+  function callJavaMethod() {
+      document.javaToJavascriptApplet.jsCall('hello world');
+  }
+  
+  var openMyDialogBox = document.getElementById('openMyDialogBox');
+  var closeMyDialogBox = document.getElementById('cancel');
+  var myDialogBox = document.getElementById('myDialogBox');
+  // button opens a modal dialog
+  openMyDialogBox.addEventListener('click', function() {
+    myDialogBox.showModal();
+  });
+
+  // Form cancel button closes the dialog box
+  closeMyDialogBox.addEventListener('click', function() {
+    myDialogBox.close();
+  });
+  
+function sleep(milliseconds) {
+	var start = new Date().getTime();
+	for (var i = 0; i < 1e7; i++) {
+		if ((new Date().getTime() - start) > milliseconds){
+		break;
+		}
+	}
+}
+
+</script>
+<script type="text/javascript">
+/* TESTING DE FONCTION DE TESTS SUR L'API 68Kjs
+/*1. fonction pour connaitre l'existence des int8Array() et leurs transcription en PHP
+	 -- voir file() at http://php.net/manual/fr/function.file.php
+function consoleOutput(){
+var infile=document.getElementById('romfile').files[0];
+var extension=infile.name.toLowerCase().substr(-4);
+var reader=new FileReader();
+reader.onload=function(){newfileready=reader;state.unhandled_count=0;handle_newfileready();};
+reader.readAsArrayBuffer(infile);
+if(infile.size>=80){
+stdlib.console.log("Starting to load as Flash variable");
+var reader=new FileReader();
+reader.onload=function(){newflashfileready=reader;state.unhandled_count=0;handle_newflashfileready();};
+reader.readAsArrayBuffer(infile);
+}
+console.log(infile);
+}
+function formsOutput(){
+var x = document.forms;
+var txt = "";
+var i;
+for (i = 0; i < x.length; i++) {
+    txt = txt + x[i].id + "<br>";
+}
+alert(txt);
+}
+*/
+/** 2.Chargement par Javascript et file-input  */
+/* NE FONCTIONNE PAS CAR L'ID N'EXISTE PAS DANS LE DOM HTML
+window.setTimeout(function(){
+
+	var x = document.createElement("input");
+	x.setAttribute("id","romfile");
+	x.setAttribute("type", "file");
+	x.setAttribute("value", "KING/ACIDE.89I");
+
+	x.addEventListener('change', function() {
+
+	    ui.loadrom();
+
+	}, false);
+
+	var event = new Event('change');
+	x.dispatchEvent(event);
+
+	alert("fichier ACIDE.89I envoyé ?");
+
+},15000);
+*/
+/* NE FONCTIONNE QUE SUR UN SYSTEME WINDOWS 
+var fso = new ActiveXObject("Scripting.FileSystemObject");
+var d = fso.GetFolder("KING");
+var fc = new Enumerator(d.Files);
+var str = "";
+var i = 5000;
+var event = new Event('change');
+for (; ! fc.atEnd() ; fc.moveNext())
+{
+	window.setTimeout(function(){
+		xfiles = document.getElementById('romfile');
+		xfiles.setAttribute("value", "KING/"+ fc.item().Name );
+		xfiles.dispatchEvent(event);
+	},i);
+
+	i += 4000;
+};*/
+/*FONCTIONNE A MOITIE  renvoie une erreur de type: infile is undefined, ou ne charge pas
+function changeUploadFile(nbFiles,filesToLoad){
+	fileName = "KING/" + filesToLoad[nbFiles];
+	uploadFile = document.getElementById('romfile');
+	//relicat: utilisation d'un chargement par canvas interposé :
+	//var canvas = document.getElementById("canvas"); 
+	//		 a definir plus tard AS3.0 ROcks
+	uploadFile.setAttribute("value", fileName);
+	window.alert( nbFiles + "-- " + fileName + " --");
+	uploadFile.onchange();
+	nbFiles--;
+	if(nbFiles != 0 ){
+		changeUploadFile(nbFiles);
+	}
+}
+/* TODO & VERIFY:
+
+FONCTIONNE A MOITIE fonction  renvoie une erreur de type: infile is undefined
+
+cf: http://openclassrooms.com/courses/dynamisez-vos-sites-web-avec-javascript/l-api-file
+cf: https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest/Utiliser_XMLHttpRequest
+cf: http://stackoverflow.com/questions/2048026/open-file-dialog-box-in-javascript
+cf: http://forum.alsacreations.com/topic-5-42480-1-AJAX-Chargement-consecutifs-via-xmlHttpRequest.html
+
+sleep:
+cf: http://stackoverflow.com/questions/16873323/javascript-sleep-wait-before-continuing
+
+
+*/
+
+function changeUploadFile(nbFiles,filesToLoad){
+	fileName = "KING/" + filesToLoad[nbFiles];
+	var xhr_object = null; 
+	     
+	/* ### Construction de l’objet XMLHttpRequest selon le type de navigateur*/
+	/* Cas des navigateurs de type Netscape (Firefore, Conqueror, etc.)*/
+	if(window.XMLHttpRequest){
+	   	xhr_object = new XMLHttpRequest(); 
+	/* Cas du navigateur Internet Explorer*/
+	}else if(window.ActiveXObject){
+	  	 xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+	/* Cas des navigateurs ne comprenant pas cette technologie (anciens navigateurs)*/
+	}else{ 
+			/* XMLHttpRequest non supporté par le navigateur */
+	 		alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest..."); 
+    	return; 
+	}
+	
+	xhr_object.onload = function() {
+  		
+	}
+	xhr_object.onreadystatechange = function() {
+
+        if (xhr_object.readyState == 4 && xhr_object.status == 200 ) {
+		var arraybuffer = xhr_object.response;
+  		var reader = new FileReader();
+  		reader.readAsArrayBuffer(arraybuffer);
+  		
+  		reader.onload = function() {
+                    ui.loadautofile(this);
+                };
+  		console.log("loading File on TI-89");
+  		nbFiles--;
+		if(nbFiles >= 0 ){
+			changeUploadFile(nbFiles,filesToLoad);
+		}
+  		
+        } else if (xhr_object.readyState == 1) {
+
+             	console.log("Opening File for TI-89");
+
+        } else if (xhr_object.readyState == 2) {
+
+             	console.log("Header File Receided for TI-89");
+
+        } else if (xhr_object.readyState == 3) {
+
+             	console.log("Download File on XHR to put on TI-89");
+
+        }
+        
+        };
+        xhr_object.open("GET", fileName, true);
+        xhr_object.responseType = "blob";
+	xhr_object.send();
+	console.log("XHR:"+fileName+" SEND REQUEST!");
+}
+var event;
+event = new Event('change');
+var filesToLoad = new Array("ACHAT.89P","ACIDE.89I","ANIM.89P","ARTEAU.89I","ARTELECT.89I","ARTFEU.89I","ARTTERRE.89I","BARRIH.89I",
+		"BARRIS.89I","BARRIV.89I","BEMAIN.89I","BH.89I","BLANC.89I","BOSS1.89I","BOSS2.89I","BOSSACT.89P",
+		"BOSSCH.89P","BOY1.89I","BOY2.89I","BOY3.89I","BOY4.89I","BUYEQ.89P","CADRE.89I","CADRE2.89I",
+		"CADRE3.89I","CADRE4.89I","CADRE5.89I","CADRE6.89I","CADRE7.89I","CADRE8.89I","CADRE9.89I",
+		"CARREAU.89I","CAVE.89P","CAVEAU1.89I","CC1.89P","CC2.89P","CC3.89P","CC4.89P","CLRF.89P",
+		"COFFRE.89I","CAFFREF.89I","COLOSSE.89I","COUCHETT.89I","CTEST.89P","CYCLOPE.89I","DARK.89I",
+		"DRAKDO.89I","DRAKELEC.89I","EAU.89I","EAUBB.89I","EAUBBD.89I","EAUBBG.89I","EAUBD.89I",
+		"EAUBG.89I","EAUBH.89I","EAUBHD.89I","EAUBHG.89I","EAUCBD.89I","EAUCBG.89I","EAUCHD.89I",
+		"EAUCHG.89I","EAUGH.89I","EAUGV.89I","EAUH.89I","EAUHBB.89I","EAUHBH.89I","EAUPH.89I",
+		"EAUPV.89I","EAUV.89I","EAUVBD.89I","EAUVBG.89I","ELECTRX1.89I","ELECTRX2.89I","ELECTRX4.89I",
+		"ELECTRX5.89I","ELECTRY1.89I","ELECTRY2.89I","ELECTRY3.89I","ENACTION.89P","ENECHOIX.89P",
+		"EPINE1.89I","EPINE2.89I","EQUIPQ.89I","FIGHT.89P","GARS1.89I","GARS2.89I","GARS3.89I",
+		"GARS4.89I","GARS5.89I","GARS6.89I","GARS7.89I","GARS8.89I","GARS9.89I","GGLACON.89I",
+		"GLACON.89I","HERBE.89I","HERBET.89I","HOTGOLEM.89I","INCUBE.89I","INFERNO1.89I",
+		"INFERNO2.89I","INN.89I","IRONBALL.89I","ITEMT.89I","JARRE.89I","KCHARGE.89P","KINGAT.89I",
+		"KINGM.89I","KINGN.89I","KINGS.89I","KINGWALK.89P","LOAD.89P","MAGIE.89P","MAIS.89I",
+		"MAISON.89P","MAPMONDE.89P","MAPT.89P","MENU.89P","MENU1.89I","MUR1.89I","MUR2.89I",
+		"MUR3.89I","MUR4.89I","MUR5.89I","MUR6.89I","MUR7.89I","MUR8.89I","MURH1.89I","MURH2.89I",
+		"MURV1.89I","MURV2.89I","MURV3.89I","NEG1.89I","NEG2.89I","NEG3.89I","NEG4.89I","NIV.89P",
+		"NIVSUP.89P","NOIR.89I","OBJET.89P","PAMPA.89I","PARLE.89P","PIKACHU.89I","PONTH.89I","PONTV.89I",
+		"PTITREPT.89I","PTX.89L","PTXF.89L","PTY.89L","PTYF.89L","PUIT.89I","RATEX.89L","RATEY.89L",
+		"REPOS.89P","ROC.89I","ROCH.89I","ROCV.89I","SABLEH.89I","SABLEV.89I","SAVE.89P","SKULL.89I",
+		"SLIME.89I","SOINSX.89L","SOINSY.89L","SOINX.89L","SOINY.89L","SOLCAR.89I","SOLCAVE.89I","SONMAI.89I",
+		"STAIRDW.89I","STAIRND.89I","STAIRNV.89I","STAIRUP.89I","STATS.89P","STEQUIP.89P","STMAG.89P","STNIV.89P",
+		"STOBJ.89P","STST.89P","SUCCUBE.89I","TOWN.89P","TRASH.89P","TTEST.89P","VAR.89P","VILLAGE1.89I","XYLOMIDE.89I");
+var nbFiles;
+nbFiles = filesToLoad.length-1;
+var delay = function() { changeUploadFile(nbFiles,filesToLoad); };
+console.log("DELAY SEND REQUEST!");
+window.setTimeout(delay,15000);
+</script>
+<script>
+//1st TEST - Chargait le fichier - infile is undefined
+/*
+window.setTimeout(function(){
+xfiles = document.getElementById('romfile');
+xfiles.setAttribute("value", "KING/ACHAT.89P");
+xfiles.onchange();
+window.alert("chargement KING/ACHAT.89P");
+},1000);
+*/
+
+//2st TEST - Chargeais le fichier - infile is undefined
+/*
+window.setTimeout(function(){
+var fileInput = document.querySelector('#romfile');
+fileInput.setAttribute("value" , "KING/MENU.89P");
+var event = new Event('change');
+fileInput.dispatchEvent(event);
+window.alert("chargement KING/MENU.89P");
+},10000);
+*/
+
+
+
+//3rd TEST - Chargemaent d'une parenthèse -- 
+//	1st resultat: emu.sendkey is not a function
+//	2nd resultat: ui.sendkey is not a function
+
+window.setTimeout(function(){
+
+	emu.setKey(7,1);
+	emu.setKey(26,1); // M
+	
+	window.setTimeout(function(){
+		emu.setKey(26,0);
+		emu.setKey(7,1);
+		emu.setKey(12,1); // E
+	
+		window.setTimeout(function(){
+			emu.setKey(12,0);
+			emu.setKey(7,1);
+			emu.setKey(18,1); // N
+	
+			window.setTimeout(function(){
+				emu.setKey(18,0);
+				emu.setKey(7,1);
+				emu.setKey(9,1); // U
+			
+				window.setTimeout(function(){
+					emu.setKey(9,0);
+					emu.setKey(7,0);
+					emu.setKey(36,1); // (
+	
+					window.setTimeout(function(){
+						emu.setKey(36,0);
+						emu.setKey(7,0);
+						emu.setKey(28,1); // )
+	
+						window.setTimeout(function(){
+						emu.setKey(28,0);
+						emu.setKey(8,1); // ENTER
+	
+						},1000);
+	
+					},1000);
+	
+				},1000);
+	
+			},1000);
+	
+		},1000);
+	
+	},1000);
+	
+},60000);
+</script>
+</body></html>

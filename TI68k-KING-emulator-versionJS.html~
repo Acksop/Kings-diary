@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Average milliseconds for the last 1000 frames is 2.495</title>
+</head>
+<body onload="javascript:emu.initemu()">
+<h3>KING - Les mésaventures du King (A game by Acksop) - on the Javascript TI-89 emulator (beta version 12) created by Patrick Davidson &amp; Lionel Debroux</h3>
+<div id="calccontainer" style="position:relative">
+
+<canvas height="100" width="160" id="screen" style="position:relative;top:36px;left:29px;z-index:1">This emulator requires a browser with canvas support and Javascript enabled.</canvas>
+
+</div>
+
+<script type="text/javascript" src="TI68k-emulator-versionJS/ti89rom.js"></script>
+<script type="text/javascript" src="TI68k-emulator-versionJS/v12_unreadable.king.js"></script>
+<script type="text/javascript">var emu=TI68kEmulatorCoreModule(window);var ui=TI68kEmulatorUIModule(window);var link=TI68kEmulatorLinkModule(window);</script>
+<script type="text/javascript">//<![CDATA[
+function reset(){d0=0;d1=0;d2=0;d3=0;d4=0;d5=0;d6=0;d7=0;a0=0;a1=0;a2=0;a3=0;a4=0;a5=0;a6=0;a8=0x4C00;a7=0x4C00;ram=new Uint16Array(131072);};
+//]]></script>
+<script type="text/javascript">if(emu.apiversion()!=1){throw"API version has changed, the script may have to be updated";}
+if(typeof(rom)==="object"){emu.setRom(rom);}
+emu.setReset(reset);ui.setEmu(emu);ui.setLink(link);emu.setUI(ui);emu.setLink(link);link.setEmu(emu);link.setUI(ui);</script>
+<script type="text/javascript">
+function launch(){
+
+	emu.setKey(7,1);
+	emu.setKey(26,1); // M
+	
+	window.setTimeout(function(){
+		emu.setKey(26,0);
+		emu.setKey(7,1);
+		emu.setKey(12,1); // E
+	
+		window.setTimeout(function(){
+			emu.setKey(12,0);
+			emu.setKey(7,1);
+			emu.setKey(18,1); // N
+	
+			window.setTimeout(function(){
+				emu.setKey(18,0);
+				emu.setKey(7,1);
+				emu.setKey(9,1); // U
+			
+				window.setTimeout(function(){
+					emu.setKey(9,0);
+					emu.setKey(7,0);
+					emu.setKey(36,1); // (
+	
+					window.setTimeout(function(){
+						emu.setKey(36,0);
+						emu.setKey(7,0);
+						emu.setKey(28,1); // )
+	
+						window.setTimeout(function(){
+						emu.setKey(28,0);
+						emu.setKey(8,1); // ENTER
+						
+							window.setTimeout(function(){
+							emu.setKey(8,0); // PUSHUP - ENTER
+							 
+	
+							},1000);
+							
+						},1000);
+	
+					},1000);
+	
+				},1000);
+	
+			},1000);
+	
+		},1000);
+	
+	},1000);
+	
+}
+
+function changeUploadFile(nbFiles,filesToLoad){
+	fileName = "KING/" + filesToLoad[nbFiles];
+	var xhr_object = null; 
+	     
+	/* ### Construction de l’objet XMLHttpRequest selon le type de navigateur*/
+	/* Cas des navigateurs de type Netscape (Firefore, Conqueror, etc.)*/
+	if(window.XMLHttpRequest){
+	   	xhr_object = new XMLHttpRequest(); 
+	/* Cas du navigateur Internet Explorer*/
+	}else if(window.ActiveXObject){
+	  	 xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+	/* Cas des navigateurs ne comprenant pas cette technologie (anciens navigateurs)*/
+	}else{ 
+			/* XMLHttpRequest non supporté par le navigateur */
+	 		alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest..."); 
+    	return; 
+	}
+	
+	xhr_object.onload = function() {
+  		
+	}
+	xhr_object.onreadystatechange = function() {
+
+        if (xhr_object.readyState == 4 && xhr_object.status == 200 ) {
+		var arraybuffer = xhr_object.response;
+  		var reader = new FileReader();
+  		reader.readAsArrayBuffer(arraybuffer);
+  		
+  		reader.onloadend = function() {
+                    ui.loadautofile(this);
+                };
+  		console.log("loading File on TI-89");
+  		nbFiles--;
+		if(nbFiles >= 0 ){
+			changeUploadFile(nbFiles,filesToLoad);
+		}
+  		
+        } else if (xhr_object.readyState == 1) {
+
+             	console.log("Opening File for TI-89");
+
+        } else if (xhr_object.readyState == 2) {
+
+             	console.log("Header File Receided for TI-89");
+
+        } else if (xhr_object.readyState == 3) {
+
+             	console.log("Download File on XHR to put on TI-89");
+
+        }
+        
+        };
+        xhr_object.open("GET", fileName, true);
+        xhr_object.responseType = "blob";
+	xhr_object.send();
+	console.log("XHR:"+fileName+" SEND REQUEST!");
+}
+var event;
+event = new Event('change');
+var filesToLoad = new Array("ACHAT.89P","ACIDE.89I","ANIM.89P","ARTEAU.89I","ARTELEC.89I","ARTFEU.89I","ARTTERRE.89I","BARRIH.89I",
+		"BARRIS.89I","BARRIV.89I","BEMAIN.89I","BH.89I","BLANC.89I","BOSS1.89I","BOSS2.89I","BOSSACT.89P",
+		"BOSSCH.89P","BOY1.89I","BOY2.89I","BOY3.89I","BOY4.89I","BUYEQ.89P","CADRE.89I","CADRE2.89I",
+		"CADRE3.89I","CADRE4.89I","CADRE5.89I","CADRE6.89I","CADRE7.89I","CADRE8.89I","CADRE9.89I",
+		"CARREAU.89I","CAVE.89P","CAVEAU1.89I","CC1.89P","CC2.89P","CC3.89P","CC4.89P","CLRF.89P",
+		"COFFRE.89I","COFFREF.89I","COLOSSE.89I","COUCHETT.89I","CTEST.89P","CYCLOPE.89I","DARK.89I",
+		"DRAKDO.89I","DRAKELEC.89I","EAU.89I","EAUBB.89I","EAUBBD.89I","EAUBBG.89I","EAUBD.89I",
+		"EAUBG.89I","EAUBH.89I","EAUBHD.89I","EAUBHG.89I","EAUCBD.89I","EAUCBG.89I","EAUCHD.89I",
+		"EAUCHG.89I","EAUGH.89I","EAUGV.89I","EAUH.89I","EAUHBB.89I","EAUHBH.89I","EAUPH.89I",
+		"EAUPV.89I","EAUV.89I","EAUVBD.89I","EAUVBG.89I","ELECTRX1.89L","ELECTRX2.89L","ELECTRX4.89L",
+		"ELECTRX5.89L","ELECTRY1.89L","ELECTRY2.89L","ELECTRY3.89L","ENACTION.89P","ENECHOIX.89P",
+		"EPINE1.89I","EPINE2.89I","EQUIPQ.89I","FIGHT.89P","GARS1.89I","GARS2.89I","GARS3.89I",
+		"GARS4.89I","GARS5.89I","GARS6.89I","GARS7.89I","GARS8.89I","GARS9.89I","GGLACON.89I",
+		"GLACON.89I","HERBE.89I","HERBET.89I","HOTGOLEM.89I","INCUBE.89I","INFERNO1.89I",
+		"INFERNO2.89I","INN.89I","IRONBALL.89I","ITEMT.89I","JARRE.89I","KCHARGE.89P","KINGAT.89I",
+		"KINGM.89I","KINGN.89I","KINGS.89L","KINGWALK.89P","LOAD.89P","MAGIE.89P","MAIS.89I",
+		"MAISON.89P","MAPMONDE.89P","MAPT.89P","MENU.89P","MENU1.89I","MUR1.89I","MUR2.89I",
+		"MUR3.89I","MUR4.89I","MUR5.89I","MUR6.89I","MUR7.89I","MUR8.89I","MURH1.89I","MURH2.89I",
+		"MURV1.89I","MURV2.89I","MURV3.89I","NEG1.89I","NEG2.89I","NEG3.89I","NEG4.89I","NIV.89P",
+		"NIVSUP.89P","NOIR.89I","OBJET.89P","PAMPA.89I","PARLE.89P","PIKACHU.89I","PONTH.89I","PONTV.89I",
+		"PTITREPT.89I","PTX.89L","PTXF.89L","PTY.89L","PTYF.89L","PUIT.89I","RATEX.89L","RATEY.89L",
+		"REPOS.89P","ROC.89I","ROCH.89I","ROCV.89I","SABLEH.89I","SABLEV.89I","SAVE.89P","SKULL.89I",
+		"SLIME.89I","SOINSX.89L","SOINSY.89L","SOINX.89L","SOINY.89L","SOLCAR.89I","SOLCAVE.89I","SONMAI.89I",
+		"STAIRDW.89I","STAIRND.89I","STAIRNV.89I","STAIRUP.89I","STATS.89P","STEQUIP.89P","STMAG.89P","STNIV.89P",
+		"STOBJ.89P","STST.89P","SUCCUBE.89I","TOWN.89P","TRASH.89P","TTEST.89P","VAR.89P","VILLAGE1.89I","XYLOMIDE.89I");
+var nbFiles;
+nbFiles = filesToLoad.length-1;
+var delay = function() { changeUploadFile(nbFiles,filesToLoad); };
+console.log("DELAY SEND REQUEST!");
+window.setTimeout(delay,15000);
+window.setTimeout(launch,150000);
+</script>
+
+</body></html>
